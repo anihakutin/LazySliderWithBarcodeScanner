@@ -1,0 +1,158 @@
+@font-face {
+  font-family: 'Permanent Marker';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Permanent Marker Regular'), local('PermanentMarker-Regular'), url('permanent_marker.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: black;
+  overflow: hidden;
+}
+
+.page-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.blur-it {
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+}
+
+
+.msg{
+  width: 200px;
+  padding: 18px 0;
+  position: absolute;
+  top: 90%; 
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-family: 'Permanent Marker';
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 0;
+  background: #e2525c;
+}
+
+.modal-wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  background: rgba(92, 93, 96, 0.8);
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.modal-wrapper.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  width: 600px;
+  height: 400px;
+  display: block;
+  margin: 50% 0 0 -300px;
+  position: relative;
+  top: 50%; 
+  left: 50%;
+  background-position: center;
+  background-size: 100%, auto;
+  background-repeat: no-repeat;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  /*box-shadow:  0px 6px 88px -13px rgba(0,0,0,0.75);*/
+}
+
+.modal-wrapper.open .modal {
+  margin-top: -200px;
+  opacity: 1;
+}
+
+.content {
+  padding: 10%;
+}
+
+.good-job {
+  text-align: center;
+  font-family: 'Permanent Marker';
+  color: #e2525c;
+  font-size: 75px;
+}
+
+.good-job h1 {
+  font-size: 45px;
+}
+
+.lazySlider{
+  /*position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;*/
+}
+
+.lazySlider img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  height: 100%;
+  /*min-width: 50%;
+  min-height: 50%;*/
+ }
+
+ .tempWidth {
+  width: 100%;
+  height: 100%;
+ }
+
+ .fadeIn {
+  opacity: 0;
+   -webkit-transition: 2s ease-in-out;
+ }
+
+ .title-bottom {
+  font-family: 'Permanent Marker';
+  display: block;
+  position: relative;
+  margin: 10px;
+  top: 80%; 
+  color: white;
+  font-size: 60px;
+  text-align: center;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+ }
+
+ .pulsate {
+    -webkit-animation: pulsate 2s ease-out;
+    -webkit-animation-iteration-count: infinite; 
+    opacity: 0.5;
+}
+@-webkit-keyframes pulsate {
+    0% { 
+        opacity: 0.1;
+    }
+    50% { 
+        opacity: 1.0;
+    }
+    100% { 
+        opacity: 0.1;
+    }
+}
