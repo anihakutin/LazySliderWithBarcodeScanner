@@ -10,4 +10,5 @@ The slider is designed to load images from a folder as long as its numbered sequ
 **Barcode card scanner**
 The barcode scanner is basically a key press listener which reads barcode inputs and displays a message accordingly when triggered by the barcode return character
 any questions feel free to email me at hbrody@hudsonend.com.
+
 **Read the story behind this project: https://medium.com/@4hbrody/forced-creativity-writing-code-for-limited-hardware-8d5e9c596db3**
