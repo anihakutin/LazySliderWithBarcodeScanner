@@ -6,44 +6,35 @@ var modalClosed = true;
 $(document).ready(function(){
 
 	//Get values entered and chk if matched card once enter(carrige return) is pressed
-      $(document).keydown(function(e) {
+$(document).keydown(function(e) {
+    //chk if enter was hit
+    var code = (e.keyCode ? e.keyCode : e.which);
+    // Enter key hit
+    if(code==13) {
+      //Log barocde scan trigger
+      console.log("Enter Hit");
+      //Chk if modal is open
+      if(modalClosed) {
+          for (var i = 0; i < cards.length; i++) {
+           if(keyPressed  === cards[i].Barcode) {
+            //Show modal
+            openModal(cards[i].Background);
+            oldEmoji = cards[i].Emoji;
+           }
+         }
+      }
+      //clear invalid barcodes
+      keyPressed ="";
+    }
 
-          //chk if enter was hit
-          var code = (e.keyCode ? e.keyCode : e.which);
-
-          // Enter key hit
-          if(code==13) {
-
-            //Log barocde scan trigger
-            console.log("Enter Hit");
-
-            //Chk if modal is open
-            if(modalClosed) {
-                      for (var i = 0; i < cards.length; i++) {
-                       if(keyPressed  === cards[i].Barcode) {
-  
-                        //Show modal
-                        openModal(cards[i].Background);
-                        oldEmoji = cards[i].Emoji;
-                       }
-                   }
-            }
-              //clear invalid barcodes		
-              keyPressed ="";
-          }
-          
-          //Build string with input values
-            else {
-           	
-                	//Capture input
-                	keyPressed = keyPressed + String.fromCharCode(code).toLowerCase();
-                	console.log("var keyPressed = " + keyPressed);
-
-            }
-          });
-  		 
-  	    });
-
+    //Build string with input values
+      else {
+      	//Capture input
+      	keyPressed = keyPressed + String.fromCharCode(code).toLowerCase();
+      	console.log("var keyPressed = " + keyPressed);
+      }
+    });
+  });
 
 //Cards
 var cards = [
@@ -55,7 +46,7 @@ var cards = [
 {
 	Title: "You won a dollar in the canteen!!",
   Background: "images/one-dollar.jpg",
-	Barcode: "000002" 
+	Barcode: "000002"
 },
 {
 	Title: "You won fifty cents in canateen!",
@@ -91,29 +82,38 @@ var cards = [
   Title: "Beats",
   Background: "images/beats.jpg",
   Barcode: "000009"
+},
+{
+  Title: "You won a MEGA prize!",
+  Background: "images/mega-prize2.jpg",
+  Barcode: "000010"
+},
+{
+  Title: "You won a GRAND prize!",
+  Background: "images/grand-prize-f.jpg",
+  Barcode: "000011"
+},
+{
+  Title: "You won a SQUISHY prize!",
+  Background: "images/squishy-f.jpg",
+  Barcode: "000012"
 }];
 
 //only do something if modal is closed
 function openModal(background) {
   if (modalClosed) {
-
-      //Add Card info
-      $(".modal").css("background-image", "url(" + background + ")");
-
-        //Modal open
-        modalClosed = false;
-
-        //Clear input
-        keyPressed ="";
-
-        //Open modal and blur background
-        $('.modal-wrapper').toggleClass('open');
-        $('.page-wrapper').toggleClass('blur-it');
-
-      //Set timer to close modal after 3 seconds
-      var modalTimer = setTimeout( function() { closeModal()}, 3000);
-      
-    }
+    //Add Card info
+    $(".modal").css("background-image", "url(" + background + ")");
+      //Modal open
+      modalClosed = false;
+      //Clear input
+      keyPressed ="";
+      //Open modal and blur background
+      $('.modal-wrapper').toggleClass('open');
+      $('.page-wrapper').toggleClass('blur-it');
+    //Set timer to close modal after 3 seconds
+    var modalTimer = setTimeout( function() { closeModal()}, 3000);
+  }
 }
 
 //close modal
@@ -121,9 +121,6 @@ function closeModal() {
     //Close modal and clear blur
     $('.modal-wrapper').toggleClass('open');
     $('.page-wrapper').toggleClass('blur-it');
-
   //modal closed
   modalClosed = true;
 }
-
-

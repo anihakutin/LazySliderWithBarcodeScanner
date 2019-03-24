@@ -1,41 +1,35 @@
 <!DOCTYPE html>
-<html >
+<html>
   <head>
     <meta charset="UTF-8">
     <title>Card Reader</title>
-
-    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/style.css">
   </head>
 
+  <body>
+    <div class="lazySlider" id="lazy"></div>
 
-<body>
-
-
-<div class="lazySlider" id="lazy"></div>
-
-<div class="title-bottom pulsate">
-  <p>Scan your card to see your message</p>
-</div>
-
-<!-- Modal -->
-<div class="modal-wrapper">
-  <div class="modal">
-    <div class="content">
-        <div class="good-job">
-          <i id="icn" class="" aria-hidden="true"></i>
-          <h1 id="cardMsg"></h1>
-        </div>
+    <div class="title-bottom pulsate">
+      <p>Scan your card to see your message</p>
     </div>
-  </div>
-</div>
-  		
-<!-- jquery -->
-<script src='js/jquery-3.3.1.min.js'></script>
-<!-- Lazy load Slider -->
-<script src="js/lazyload.js"></script>
-<!-- JS -->
-<script src="js/index.js"></script>
 
- 
+    <!-- Modal -->
+    <div class="modal-wrapper">
+      <div class="modal">
+        <div class="content">
+            <div class="good-job">
+              <i id="icn" class="" aria-hidden="true"></i>
+              <h1 id="cardMsg"></h1>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jquery -->
+    <script src='js/jquery-3.3.1.min.js'></script>
+    <!-- Lazy load Slider -->
+    <script src="js/lazyload.js"></script>
+    <!-- JS -->
+    <script src="js/index.js"></script>
   </body>
 </html>

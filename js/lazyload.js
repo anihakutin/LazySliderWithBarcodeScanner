@@ -1,4 +1,5 @@
 //Heshie Brody 2018
+//917-715-1036
 //www.hudsonend.com
 //June 17, 2018 3:53am
 //Lazy load slider
@@ -16,13 +17,13 @@ var slides = [];
 var imgLinks = [];
 var slideNumber = 1;
 
-while(slideNumber <= numOfSlides){
-slides.push('<img src="' + 'slides/' + slideNumber + '.jpg' +'" />');
-imgLinks.push('slides/' + slideNumber + '.jpg');
-slideNumber++;
+while(slideNumber <= numOfSlides) {
+	slides.push('<img src="' + 'slides/' + slideNumber + '.jpg' +'" />');
+	imgLinks.push('slides/' + slideNumber + '.jpg');
+	slideNumber++;
 }
 
-//Append 2 slide element 
+//Append 2 slide element
 var elem = document.getElementById("lazy");
 elem.innerHTML += slides[0];
 elem.innerHTML += slides[1];
@@ -31,24 +32,23 @@ elem.innerHTML += slides[1];
 var slider = setInterval(mySlider, 4000);
 var slideP = 0;
 function mySlider() {
+	if(slideP < numOfSlides) {
+		//get fist, last and previous slide element
+		var firstSlide = elem.firstElementChild;
+		var lastSlide = elem.lastElementChild;
 
-if(slideP < numOfSlides) {
-//get fist, last and previous slide element
-var firstSlide = elem.firstElementChild;
-var lastSlide = elem.lastElementChild;
+		//Load first image and animate
+		firstSlide.className = "fadeIn";
+		lastSlide.getAttributeNode("src").value = imgLinks[slideP];
 
-//Load first image and animate
-firstSlide.className = "fadeIn";
-lastSlide.getAttributeNode("src").value = imgLinks[slideP];
+		//move to next slide
+		elem.insertBefore(lastSlide, firstSlide);
 
-//move to next slide
-elem.insertBefore(lastSlide, firstSlide);
+		//remove image from previous slide, 2nd child
+		lastSlide.classList.remove("fadeIn");
 
-//remove image from previous slide, 2nd child
-lastSlide.classList.remove("fadeIn");
-
-slideP++;
-} else{
-	slideP = 0;
-}
+		slideP++;
+	} else {
+			slideP = 0;
+	}
 }
